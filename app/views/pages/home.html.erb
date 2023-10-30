@@ -1,0 +1,45 @@
+<style>
+    .imgx {
+        width: 120px !important;
+        border-radius: 50%;
+        border: 2px solid #cdcdcd;
+    }
+</style>
+
+<div class="col-lg-10 mx-auto mt-5">
+<div class="card mt-4 mb-4">
+  <div class="card-body">
+    <h3 class="text-center mb-3">Search professional across the world</h3>
+
+
+  <%= search_form_for @q , url: xuserx_path do |form| %>
+      <div class="input-group mb-3">
+        <%= form.search_field :country_cont, class: "form-control", placeholder: "Search by country or city",
+                             area: { label: "Search area by country o city", describedby: "button-addon2"} %>
+
+        <%= form.submit "Search", class: "btn btn-primary", id: "button-addon2" %>
+
+      </div>
+      <% end %>
+
+  </div>
+</div>
+
+  <div class="row mt-4 mb-4">
+    <% @users.each do |user| %>
+      <div class="col-lg-3 mb-3 mt-3" >
+        <div class="card text-center shadow"  style="min-height:200px !important;">
+          <div class="card-body">
+            <%= image_tag "smiley1.png", style: "width:120px !important; border-radius: 50%; border:2px solid #cdcdcd;", class: "mb-3" %>
+          </div>
+          <div class="user-info" style="min-height:180px !important;">
+            <h5><%= user.name %> </h5>
+            <p class="lead"><%= user.profile_title %></p>
+            <small class="text-primary"><%= user.country %></small><br>
+            <%= link_to "View Profile", member_path(user), class: "btn btn-primary mt-3" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

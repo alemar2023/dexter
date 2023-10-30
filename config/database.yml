@@ -1,0 +1,24 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  port: 5432
+  username: alexj
+  password: lencka
+
+development:
+  <<: *default
+  database: dexter_dev
+
+
+test:
+  <<: *default
+  database: dexter_test
+
+production:
+  <<: *default
+  database: dexter_prod
+  username: devx
+  password: <%= ENV["DEVX_DATABASE_PASSWORD"] %>
