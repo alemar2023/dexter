@@ -7,23 +7,23 @@
 </style>
 
 <div class="col-lg-10 mx-auto mt-5">
-<div class="card mt-4 mb-4">
-  <div class="card-body">
-    <h3 class="text-center mb-3">Search professional across the world</h3>
+  <div class="card mt-4 mb-4">
+    <div class="card-body">
+      <h3 class="text-center mb-3">Search professional across the world</h3>
 
 
-  <%= search_form_for @q , url: xuserx_path do |form| %>
-      <div class="input-group mb-3">
-        <%= form.search_field :country_cont, class: "form-control", placeholder: "Search by country or city",
-                             area: { label: "Search area by country o city", describedby: "button-addon2"} %>
+      <%= search_form_for @q , url: xuserx_path do |form| %>
+        <div class="input-group mb-3">
+          <%= form.search_field :country_cont, class: "form-control", placeholder: "Search by country or city",
+                                area: { label: "Search area by country o city", describedby: "button-addon2"} %>
 
-        <%= form.submit "Search", class: "btn btn-primary", id: "button-addon2" %>
+          <%= form.submit "Search", class: "btn btn-primary", id: "button-addon2" %>
 
-      </div>
+        </div>
       <% end %>
 
+    </div>
   </div>
-</div>
 
   <div class="row mt-4 mb-4">
     <% @users.each do |user| %>
